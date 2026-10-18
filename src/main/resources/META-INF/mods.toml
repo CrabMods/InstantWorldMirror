@@ -8,7 +8,7 @@ issueTrackerURL=""
 modId="instantworldmirror"
 version="${file.jarVersion}"
 displayName="World Mirrors"
-updateJSONURL="https://raw.githubusercontent.com/crabsatellite/InstantWorldMirror/changelog/changelog.json"
+updateJSONURL="https://raw.githubusercontent.com/CrabMods/InstantWorldMirror/changelog/changelog.json"
 displayURL=""
 # logoFile intentionally omitted; gallery logos live on the gallery branch.
 credits=""

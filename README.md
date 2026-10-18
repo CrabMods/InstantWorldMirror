@@ -10,7 +10,7 @@
 
 ▶ [Watch the trailer](https://www.youtube.com/watch?v=AMWi2Ea9uMI) · 1:26 · 1080p · English captions, music and effects
 
-[CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) · [Modrinth](https://modrinth.com/mod/instant-world-mirror) · [GitHub](https://github.com/crabsatellite/InstantWorldMirror)
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) · [Modrinth](https://modrinth.com/mod/instant-world-mirror) · [GitHub](https://github.com/CrabMods/InstantWorldMirror)
 
 Stranded snapshots reopen across saves on the same Minecraft version. Item retention follows world/server rules.
 
@@ -20,7 +20,7 @@ Stranded snapshots reopen across saves on the same Minecraft version. Item reten
 [![Forge](https://img.shields.io/badge/Forge-47.3+-orange.svg)](https://files.minecraftforge.net/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-**English** | **[中文](https://github.com/crabsatellite/InstantWorldMirror/blob/1.20.1/docs/readme/chn/README.md)**
+**English** | **[中文](https://github.com/CrabMods/InstantWorldMirror/blob/1.20.1/docs/readme/chn/README.md)**
 
 ## What This Mod Does
 
@@ -241,7 +241,7 @@ Client config file: `config/instantworldmirror-client.toml`
 ## Downloads
 
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) - Mod download
-- [GitHub](https://github.com/crabsatellite/InstantWorldMirror) - Source code
+- [GitHub](https://github.com/CrabMods/InstantWorldMirror) - Source code
 
 ## License
 

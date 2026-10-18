@@ -10,7 +10,7 @@
 
 ▶ [观看宣传片](https://www.youtube.com/watch?v=AMWi2Ea9uMI) · 1:26 · 1080p · 英文字幕、音乐与音效
 
-[CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) · [Modrinth](https://modrinth.com/mod/instant-world-mirror) · [GitHub](https://github.com/crabsatellite/InstantWorldMirror)
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) · [Modrinth](https://modrinth.com/mod/instant-world-mirror) · [GitHub](https://github.com/CrabMods/InstantWorldMirror)
 
 搁浅之镜跨存档使用要求相同 Minecraft 版本；物品带出遵循世界／服务器配置。
 
@@ -20,7 +20,7 @@
 [![Forge](https://img.shields.io/badge/Forge-47.3+-orange.svg)](https://files.minecraftforge.net/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](../../../LICENSE)
 
-**[English](https://github.com/crabsatellite/InstantWorldMirror/blob/1.20.1/README.md)** | **中文**
+**[English](https://github.com/CrabMods/InstantWorldMirror/blob/1.20.1/README.md)** | **中文**
 
 ## 这个模组做什么
 
@@ -254,7 +254,7 @@ InstantWorldMirror 可以在你所在的位置创建临时或永久保存的镜�
 ## 下载
 
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) - 模组下载
-- [GitHub](https://github.com/crabsatellite/InstantWorldMirror) - 源代码
+- [GitHub](https://github.com/CrabMods/InstantWorldMirror) - 源代码
 
 ## 许可证
 
