@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "readme": "README.md",
+  "readme": "docs/PLAYER_GUIDE.md",
   "features": [
     {
       "id": "mirror_items",

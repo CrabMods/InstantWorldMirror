@@ -1,0 +1,263 @@
+> 公开分支 1c6c19e0b97cea9a7f55fc7fa4f651f7439fab94 的源码参考。[玩家指南](https://crabmods.com/mods/mirror)。
+
+# InstantWorldMirror - 即时世界镜像
+
+<!-- PROMO-VIDEO:START -->
+
+**大胆探索，让原世界保持安全。映界之镜用于安全探路，天堂之镜用于创造模式试建，初梦之镜重现种子地形，搁浅之镜把世界切片重新打开到同版本的另一个存档。**
+
+`Forge 1.20.1` · `NeoForge 1.21.1`
+
+[![观看宣传片](https://i.ytimg.com/vi/AMWi2Ea9uMI/maxresdefault.jpg)](https://www.youtube.com/watch?v=AMWi2Ea9uMI)
+
+▶ [观看宣传片](https://www.youtube.com/watch?v=AMWi2Ea9uMI) · 1:26 · 1080p · 英文字幕、音乐与音效
+
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) · [Modrinth](https://modrinth.com/mod/instant-world-mirror) · [GitHub](https://github.com/CrabMods/InstantWorldMirror)
+
+搁浅之镜跨存档使用要求相同 Minecraft 版本；物品带出遵循世界／服务器配置。
+
+<!-- PROMO-VIDEO:END -->
+
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-green.svg)](https://minecraft.net/)
+[![Forge](https://img.shields.io/badge/Forge-47.3+-orange.svg)](https://files.minecraftforge.net/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
+**[English](https://github.com/CrabMods/InstantWorldMirror/blob/1.20.1/README.md)** | **中文**
+
+## 这个模组做什么
+
+InstantWorldMirror 可以在你所在的位置创建临时或永久保存的镜世界。你可以探索、测试建筑、打怪测试，或查看重新生成的地形，不会影响原世界。
+
+模组有四面镜子。每面镜子都会打开一个独立的镜世界，但复制规则、游戏模式、保存方式和刷新规则不同。
+
+## 选择镜子
+
+- **世界映照镜**：标准的临时镜世界，会复制你周围的区域。
+- **天堂之镜**：临时创造沙盒，进入后切换为创造模式。
+- **初梦之镜**：按当前世界种子重建这片区域最初生成的地形，忽略玩家改动。
+- **搁浅之镜**：把命名的世界切片保存到全局本地缓存，并能在同一 Minecraft 版本的其他存档中重新打开。
+
+普通测试用世界映照镜；想开创造试东西用天堂之镜；想看原始地形用初梦之镜；想在存档之间搬运建筑或地形用搁浅之镜。
+
+## 游戏内 UI 配置系统与默认推荐配置
+
+- 在模组列表中选择 **Instant World Mirror**，点击“配置”即可打开游戏内配置 UI。
+- 保存后的设置会写入服务器配置文件，并在服务器重启后生效。
+
+| 镜子种类 | 默认权限 | 默认生成生物 | 默认允许带回物资 | 默认复制区块半径 |
+| --- | --- | --- | --- | --- |
+| 映界之镜 | 全部玩家 | 关闭 | 不允许 | 10 |
+| 天堂之镜 | 全部玩家 | 关闭 | 不允许 | 10 |
+| 初梦之镜 | 全部玩家 | 开启 | 不允许 | 10 |
+| 搁浅之镜 | 全部玩家 | 关闭 | 不允许 | 10 |
+
+## 一次会话怎么走
+
+- 手持世界映照镜、天堂之镜或初梦之镜右键实心方块，创建入口传送门。
+- 手持搁浅之镜右键实心方块，输入名称并等待配置范围内的区块保存完成；保存完成后不会自动生成传送门。对空气使用或 Shift 右键会打开统一的长期镜世界菜单，其中分别提供“永久镜世界”和“跨存档世界切片”。
+- 传送门复制或生成完成后，走进去就会进入镜世界。
+- 在世界映照镜或初梦之镜的世界里，右键实心方块可以创建返回传送门。如果返回门离入口很远，会回到原世界的对应位置。
+- 在镜世界里对着空气长按右键，会回到这个镜世界的入口点，但不会离开镜世界。
+- 天堂之镜不会创建返回传送门；离开时使用原入口，或使用 `/iwm return`。
+- 在镜世界死亡会回到原世界，并恢复保存的玩家状态。
+- 同一名玩家同一时间只能开一个镜世界。
+- 其他玩家可以共用同一个入口，但要等创建者先进入；如果创建者离开临时镜世界，其他玩家也会被送回。
+- 如果玩家断线后重登，且模组还保存着这名玩家的镜世界状态，会尽量恢复原世界位置、背包和玩家状态。
+- 临时镜世界会在玩家离开后自动清理。
+
+## 世界规则
+
+复制型镜世界会在配置的区块半径内复制方块、方块实体、生物群系、结构、高度图，也可以按配置复制实体。
+
+搁浅之镜会把压缩后的方块、生物群系和方块实体数据保存到游戏实例目录下的 `instantworldmirror-cache/stranded_snapshots`。为保证跨存档安全，它不会保存普通实体；不同版本或损坏的切片只能删除，不能打开。
+
+初梦之镜会使用原世界当前种子和区块生成器，重新生成地形、结构、生物群系、洞穴、地表和特性。进入初梦之镜时，游戏模式保持不变，物品带回规则和世界映照镜一样。
+
+默认会限制非玩家主动触发的刷怪：自然生成、结构生成和刷怪笼生成会被拦截；刷怪蛋、繁殖、水桶和命令这类玩家触发的生成仍然可用。管理员可以通过配置或 `/iwm mob` 控制这个规则，以及未开启的生成战利品容器是否保留内容。天气、时间和维度视觉效果会跟随原世界；生存和冒险玩家不能从镜世界使用维度传送门，镜世界里也不能创建下界传送门。
+
+四面镜子共用同一套物品带出规则。关闭物品带出时，模组会恢复保存过的原版背包、末影箱，以及可持久化的 Forge/NeoForge 玩家扩展数据，防止镜世界物品通过饰品槽或背包槽带出。开启物品带出时，四面镜子都允许把物品带回原世界，包括天堂之镜里的创造物品。
+
+## 天堂沙盒
+
+用天堂之镜进入时，模组会保存你的背包和玩家状态，清空沙盒背包，并切到创造模式。离开时会恢复游戏模式和玩家状态，物品是否带出则和另外两面镜子使用同一套规则。
+
+天堂沙盒里会给你一面对应的镜子；原镜子上的永久和超平坦附魔会保留下来。带超平坦的天堂之镜不会复制源地形，而会在入口高度生成有边界的草方块、两层泥土和基岩建造平台。
+
+## 附魔与冷却
+
+- 生存模式使用镜子有可配置冷却。效率附魔会同时减少普通镜子冷却和复苏冷却，每级减少 20%，最低 30 秒。
+- 创造模式无视普通镜子冷却和复苏冷却。
+- 带有永久附魔的镜子可以把完成复制的临时镜世界保存为永久镜世界，前提是玩家是管理员或被授予权限。
+- 想保存永久镜世界，创建临时镜世界时就必须使用带永久附魔的镜子。之后再进入这个永久镜世界，也要手持同类型的永久附魔镜子。
+- 复苏只对初梦之镜有效。当配置或 `/iwm mob off` 关闭自然刷怪时，带复苏的初梦之镜可以在冷却结束后刷新生成生物和未开启的生成战利品。
+- 超平坦只对天堂之镜有效，会使用干净的创造建造平台替代复制地形。
+- 普通镜子冷却跟着玩家走；复苏冷却跟着初梦之镜物品走。物品栏进度条和物品提示会显示复苏冷却，`showCooldownHud` 可以显示普通镜子冷却。
+- 创造物品栏的 World Mirrors 分类包含四面镜子，以及永久、复苏和超平坦三本附魔书。
+- 生存模式下，永久和超平坦是常规镜子附魔；复苏是宝藏附魔。
+
+## 永久镜世界
+
+永久镜世界不占用临时会话槽。它们使用独立的永久池，全服务器共有 8 个槽位。
+
+已完成的临时镜世界只有在创建时用了永久附魔镜子，才能保存为永久镜世界。保存后会记住镜子类型和地形模式；以后进入时，也需要同类型的永久附魔镜子。
+
+手持带永久附魔的镜子 Shift 右键，会打开居中的永久镜世界菜单，可以保存、进入、离开、重命名或删除。Esc 或右上角 X 可以关闭。命令会自动补全 `slot_1` 这样的选择器，玩家不需要复制 UUID。
+
+`/iwm status` 会同时显示临时槽和永久槽。`/iwm repair` 会扫描中断的镜世界数据，并跳过仍在使用的镜世界。永久镜世界会一直保留，直到所有者或管理员删除。
+
+中断的永久保存会在服务器启动时或通过 `/iwm repair` 修复。`/iwm purge` 会强制清理临时镜世界，但不会在服务器运行时删除已加载的维度文件夹，也不会删除永久镜世界记录，并且在必要的重启前会阻止新的镜世界创建。
+
+## 管理与清理
+
+- 复制时高度图扫描会跳过空空气列。
+- 顺序区块队列可以降低服务器负载。
+- 清理会记录被改动过的区块，并扫描复制半径边缘外延伸出去的方块。
+- 服务器关闭时会保存待清理状态，并清空临时镜世界会话记录。
+
+## 安装
+
+1. 安装 Minecraft 1.20.1 的 Forge。
+2. 下载本模组 JAR 文件。
+3. 放入 `.minecraft/mods` 文件夹。
+4. 启动游戏。
+
+## 合成配方
+
+世界映照镜：玻璃、黑曜石和末影珍珠。
+
+```
+[玻璃]   [黑曜石]   [玻璃]
+[黑曜石] [末影珍珠] [黑曜石]
+[玻璃]   [黑曜石]   [玻璃]
+```
+
+天堂之镜：萤石、红石和末影珍珠。
+
+```
+[萤石]   [红石粉]   [萤石]
+[红石粉] [末影珍珠] [红石粉]
+[萤石]   [红石粉]   [萤石]
+```
+
+初梦之镜：橡树树苗、玻璃、橡木原木和末影珍珠。
+
+```
+[橡树树苗] [玻璃]     [橡树树苗]
+[橡木原木] [末影珍珠] [橡木原木]
+[橡树树苗] [玻璃]     [橡树树苗]
+```
+
+搁浅之镜：玻璃、黑色混凝土、煤炭和末影珍珠。
+
+```
+[玻璃] [黑色混凝土] [玻璃]
+[煤炭] [末影珍珠]   [煤炭]
+[玻璃] [黑色混凝土] [玻璃]
+```
+
+## 命令
+
+所有命令都以 `/iwm` 开头。
+
+| 命令 | 描述 | 权限 |
+| --- | --- | --- |
+| `/iwm return` | 从镜世界返回原世界 | 所有玩家 |
+| `/iwm mob on/off/status` | 开关自然刷怪，并控制未开启生成战利品是否保留 | OP 等级 2 |
+| `/iwm allow <player>` | 允许玩家使用镜世界 | OP 等级 2 |
+| `/iwm deny <player>` | 禁止玩家使用镜世界 | OP 等级 2 |
+| `/iwm itemtransfer <player> <true/false>` | 设置玩家能否从任意镜子带回镜世界物品 | OP 等级 2 |
+| `/iwm status` | 显示临时槽和永久槽状态 | OP 等级 2 |
+| `/iwm persistent menu` | 打开永久镜世界菜单 | 玩家 |
+| `/iwm persistent save [name]` | 把当前临时镜世界保存为永久镜世界 | OP 等级 3 或被授权玩家 |
+| `/iwm persistent enter <selector>` | 使用补全选择器进入永久镜世界 | 有访问权限的玩家 |
+| `/iwm persistent leave` | 离开当前永久镜世界 | 玩家 |
+| `/iwm persistent delete <selector>` | 使用补全选择器删除永久镜世界 | 所有者或 OP 等级 3 |
+| `/iwm persistent rename <selector> <name>` | 使用补全选择器重命名永久镜世界 | 所有者或 OP 等级 3 |
+| `/iwm persistent grant <player>` | 授予永久镜世界创建权限 | OP 等级 3 |
+| `/iwm persistent revoke <player>` | 撤销永久镜世界创建权限 | OP 等级 3 |
+| `/iwm repair` | 修复中断的镜世界数据，不清理正在使用的镜世界 | OP 等级 3 |
+| `/iwm forceclear <dimension>` | 强制清理一个临时镜维度 | OP 等级 3 |
+| `/iwm purge` | 强制清理临时镜世界，不在运行中删除维度文件夹，并在重启前阻止新的镜世界创建 | OP 等级 3 |
+
+## 配置
+
+配置文件：`config/instantworldmirror-common.toml`
+
+### 维度池设置
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `dimensionPoolSize` | 4 | 临时镜维度池大小，范围 1-8 |
+
+### 世界复制设置
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `copyChunkRadius` | 10 | 复制半径，单位为区块 |
+| `copyChunksPerTick` | 2 | 每 tick 复制的区块数 |
+| `cleanupChunksPerTick` | 4 | 每 tick 清理的区块数 |
+| `edgeCleanupRadius` | 3 | 边缘清理扫描的额外半径 |
+
+### 传送门设置
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `entryPortalLifetime` | 300 | 复制完成后入口传送门持续秒数 |
+| `returnPortalLifetime` | -1 | 返回传送门持续秒数 |
+| `maxPortalLoadingTime` | 600 | 传送门最大加载秒数 |
+
+### 物品与生物设置
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `mirrorCooldown` | 300 | 镜子使用冷却秒数，会被效率附魔降低 |
+| `worldReflectionMirrorAccess` | ALL | 映界之镜权限：NONE、ADMIN 或 ALL |
+| `heavenMirrorAccess` | ALL | 天堂之镜权限：NONE、ADMIN 或 ALL |
+| `firstDreamMirrorAccess` | ALL | 初梦之镜权限：NONE、ADMIN 或 ALL |
+| `strandedMirrorAccess` | ALL | 搁浅之镜权限：NONE、ADMIN 或 ALL |
+| `worldReflectionMirrorMobSpawning` | false | 映界之镜是否允许自然刷怪 |
+| `heavenMirrorMobSpawning` | false | 天堂之镜是否允许自然刷怪 |
+| `firstDreamMirrorMobSpawning` | true | 初梦之镜是否允许自然刷怪 |
+| `strandedMirrorMobSpawning` | false | 搁浅之镜是否允许自然刷怪 |
+| `worldReflectionMirrorItemTransfer` | false | 映界之镜是否允许带回新增物品 |
+| `heavenMirrorItemTransfer` | false | 天堂之镜是否允许带回新增物品 |
+| `firstDreamMirrorItemTransfer` | false | 初梦之镜是否允许带回新增物品 |
+| `strandedMirrorItemTransfer` | false | 搁浅之镜是否允许带回新增物品 |
+| `worldReflectionMirrorCopyChunkRadius` | 10 | 映界之镜复制区块半径 |
+| `heavenMirrorCopyChunkRadius` | 10 | 天堂之镜复制区块半径 |
+| `firstDreamMirrorCopyChunkRadius` | 10 | 初梦之镜生成区块半径 |
+| `strandedMirrorCopyChunkRadius` | 10 | 搁浅之镜保存区块半径 |
+| `copyEntities` | false | 是否复制生物实体 |
+| `copyDecorationEntities` | true | 是否复制装饰实体 |
+
+### 环境设置
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `copyBiomes` | true | 是否复制生物群系数据 |
+| `copyStructures` | true | 是否复制结构数据 |
+| `copyHeightmaps` | true | 是否复制高度图数据 |
+
+### 服务器限制
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `maxMirrorWorldsPerPlayer` | 1 | 预留的会话限制设置；当前实际行为是一名玩家只能开一个镜世界 |
+| `staleSessionCleanupInterval` | 300 | 过期会话清理检查间隔秒数 |
+
+### 客户端设置
+
+客户端配置文件：`config/instantworldmirror-client.toml`
+
+| 配置 | 默认值 | 描述 |
+| --- | --- | --- |
+| `showCooldownHud` | false | 显示冷却计时 HUD |
+
+## 下载
+
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) - 模组下载
+- [GitHub](https://github.com/CrabMods/InstantWorldMirror) - 源代码
+
+## 许可证
+
+Apache License 2.0
