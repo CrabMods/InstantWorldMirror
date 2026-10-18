@@ -1,6 +1,6 @@
 # InstantWorldMirror 模组设计文档
 
-**[English](https://github.com/crabsatellite/InstantWorldMirror/blob/1.21.1/docs/development/PLAN.md)** | **[中文](https://github.com/crabsatellite/InstantWorldMirror/blob/1.21.1/docs/development/PLAN.md)**
+**[English](https://github.com/CrabMods/InstantWorldMirror/blob/1.21.1/docs/development/PLAN.md)** | **[中文](https://github.com/CrabMods/InstantWorldMirror/blob/1.21.1/docs/development/PLAN.md)**
 
 ## 一、模组核心设定
 
