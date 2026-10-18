@@ -4,7 +4,7 @@
 [![NeoForge](https://img.shields.io/badge/NeoForge-21.0+-orange.svg)](https://neoforged.net/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](../../../LICENSE)
 
-**[English](https://github.com/crabsatellite/InstantWorldMirror/blob/1.21.1/README.md)** | **中文**
+**[English](https://github.com/CrabMods/InstantWorldMirror/blob/1.21.1/README.md)** | **中文**
 
 ## 即时试验场 - 无后顾之忧的探索体验
 
@@ -169,7 +169,7 @@ InstantWorldMirror 为 Minecraft 玩家提供了一个即时可用的沙盒试�
 ## 下载
 
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) - 模组下载
-- [GitHub](https://github.com/crabsatellite/InstantWorldMirror) - 源代码
+- [GitHub](https://github.com/CrabMods/InstantWorldMirror) - 源代码
 
 ## 许可证
 

@@ -4,7 +4,7 @@
 [![NeoForge](https://img.shields.io/badge/NeoForge-21.0+-orange.svg)](https://neoforged.net/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-**English** | **[中文](https://github.com/crabsatellite/InstantWorldMirror/blob/1.21.1/docs/readme/chn/README.md)**
+**English** | **[中文](https://github.com/CrabMods/InstantWorldMirror/blob/1.21.1/docs/readme/chn/README.md)**
 
 ## Instant Sandbox - Explore Without Consequences
 
@@ -169,7 +169,7 @@ Client config located at `config/instantworldmirror-client.toml`
 ## Downloads
 
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instantworldmirror) - Mod download
-- [GitHub](https://github.com/crabsatellite/InstantWorldMirror) - Source code
+- [GitHub](https://github.com/CrabMods/InstantWorldMirror) - Source code
 
 ## License
 
